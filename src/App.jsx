@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import DMList from "./components/DMList";
 import FilterOptions from "./components/FilterOptions";
 import Settings from "./components/Settings";
@@ -78,7 +78,11 @@ function App() {
   }
 
   if (error) {
-    return <Container>Error: {error}</Container>;
+    return (
+      <Container className="d-flex justify-content-center align-items-center vh-100">
+        <h2>Error: {error}</h2>
+      </Container>
+    );
   }
 
   return (
